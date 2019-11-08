@@ -9,38 +9,72 @@
     crossorigin="anonymous"></script>
     <script src="js/scripts.js" charset="utf-8"></script>
 
-    <title>Mario's Pizza Shop</title>
+    <title>Altosaxophione's Pizza Shop</title>
   </head>
   <body>
-    <form id="pizzaOrder" action="index.html" method="post">
-      <!-- Here is the area for the customer to input their name -->
-       Name: <input type="text"id="name"><br>
+    <div class="topHeader">
+      <h1>Welcome to Altosaxophione's Pizza Shop</h1>
+      <h3>Please Place your order below:</h3>
+    </div>
+    <div class="container">
 
-      <!-- user selects size here -->
-      <input type="radio" name="size" value="8"> Small $8<br>
-      <input type="radio" name="size" value="10"> Medium $10<br>
-      <input type="radio" name="size" value="12"> Large $12<br>
 
-      <!-- user selects toppings here -->
-     <label class="container">Pepperoni + $1
-       <input type="checkbox"  value="1">
-       <span class="checkmark"></span>
-     </label>
-     <label class="container">Canadian Bacon + $1
-       <input type="checkbox"  value="1">
-       <span class="checkmark"></span>
-     </label>
-     <label class="container"> Jalapeno + $.50
-       <input type="checkbox"  value="0.50">
-       <span class="checkmark"></span>
-     </label>
-     <label class="container">Onion + $.50
-       <input type="checkbox"  value="0.50">
-       <span class="checkmark"></span>
-     </label>
+      <form id="pizzaOrder" action="index.html" method="post">
 
-      <button type="submit" name="button">Order Your Pizza!</button>
-    </form>
+        <!-- Here is the area for the customer to input their name -->
+        <div class="name">
+          <h4>Please enter a name for your order</h4>
+          <input type="text"id="name"><br>
+        </div>
+
+
+        <!-- user selects size here -->
+        <div class="size">
+          <h4>Which Size would you like?</h4>
+          <input type="radio" name="size" value="8"> Small $8<br>
+          <input type="radio" name="size" value="10"> Medium $10<br>
+          <input type="radio" name="size" value="12"> Large $12<br>
+        </div>
+
+
+        <!-- user selects toppings here -->
+        <div class="toppings">
+
+        <h4>Please select your toppings:</h4>
+         <label>Pepperoni + $1
+           <input type="checkbox"  value="1">
+           <span class="checkmark"></span>
+         </label>
+         <label>Canadian Bacon + $1
+           <input type="checkbox"  value="1">
+           <span class="checkmark"></span>
+         </label>
+         <label>Sausage + $1.50
+           <input type="checkbox"  value="1.5">
+           <span class="checkmark"></span>
+         </label>
+         <label> Jalapeno + $.50
+           <input type="checkbox"  value="0.50">
+           <span class="checkmark"></span>
+         </label>
+         <label>Onion + $.50
+           <input type="checkbox"  value="0.50">
+           <span class="checkmark"></span>
+         </label>
+         <label >Mushroom + $.75
+           <input type="checkbox"  value="0.75">
+           <span class="checkmark"></span>
+         </label>
+         <label>Olives + $.50
+           <input type="checkbox"  value="0.50">
+           <span class="checkmark"></span>
+         </label>
+        </div>
+        <div class="button">
+          <button type="submit" name="button">Order Your Pizza!</button>
+        </div>
+      </form>
+    </div>
     <div id="recipt">
 
     </div>
