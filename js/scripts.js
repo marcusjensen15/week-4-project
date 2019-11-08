@@ -1,3 +1,5 @@
+//Business Logic
+
 var checkedToppings = [];
 var toppingTotal;
 
@@ -7,10 +9,14 @@ Pizza = function(name, toppings, size){
   this.name = name,
   this.size = size,
   this.toppings = toppings,
-  this.price = this.size + this.toppings
+  this.price = 0;
 
 };
 
+Pizza.prototype.calcPrice = function(){
+  this.price = this.size + this.toppings;
+
+}
 //This is if we want to have multiple pizza orders:
 
 // PizzaManager = function (){
@@ -25,7 +31,7 @@ Pizza = function(name, toppings, size){
 
 function toppingsValue(toppings){
   for(i=0; i < toppings.length; i++){
-    checkedToppings.push(parseFloat(toppings[i].value)); 
+    checkedToppings.push(parseFloat(toppings[i].value));
   }
 };
 
@@ -38,7 +44,7 @@ function sumToppings(checkedToppingsArray){
 
 }
 
-
+//User Logic
 $( document ).ready(function() {
     $("#pizzaOrder").submit(function(event){
       checkedToppings = [];
@@ -50,9 +56,12 @@ $( document ).ready(function() {
       toppingsValue(toppings);
       toppingTotal = sumToppings(checkedToppings);
       var myPizza = new Pizza(customerName,toppingTotal,pizzaSize);
-
+      myPizza.calcPrice();
       $("#recipt").text("Thank you for your order " + myPizza.name+"!" + " your grand total is: $" + myPizza.price);
 
+      $("#name").val(" ");
+      $('input[type=checkbox]').prop('checked', false);
+      $("input[name='size']").prop('checked', false);
 
 
         event.preventDefault();
