@@ -1,7 +1,6 @@
-// var checkedToppings = [];
-// var toppingsValue = 0;
-// var pizzaSize = 0;
-// var customerName= "";
+var checkedToppings = [];
+var toppingTotal;
+
 
 
 Pizza = function(name, toppings, size){
@@ -45,23 +44,36 @@ function sumToppings(checkedToppingsArray){
 
 $( document ).ready(function() {
     $("#pizzaOrder").submit(function(event){
-      var checkedToppings = [];
-      var toppingsValue = 0;
-      var pizzaSize = 0;
-      var customerName= "";
+      checkedToppings = [];
+      var customerName = $("#name").val();
+      var pizzaSize = parseInt($("input[name='size']:checked").val());
 
-
-      customerName = $("#name").val();
-      pizzaSize = parseInt($("input[name='size']:checked").val());
-
+      
       var toppings = $('input[type=checkbox]:checked');
-      toppingsValue = toppingsValue(toppings);
-      var myPizza = new Pizza(customerName,toppingsValue, pizzaSize);
-      var pizzaManager = new PizzaManager();
-      console.log(myPizza);
+      toppingsValue(toppings);
+      toppingTotal = sumToppings(checkedToppings);
+      console.log(toppingTotal);
 
 
-      console.log(sumToppings(checkedToppings));
+
+
+
+
+
+
+      // customerName = $("#name").val();
+      // pizzaSize = parseInt($("input[name='size']:checked").val());
+      // var toppings = $('input[type=checkbox]:checked');
+      // toppingsValue(toppings); //this is pushing the string value of the toppings into the checkedToppings array. left with an array of numbers.
+      // toppingsValue = sumToppings(checkedToppings); //this is adding everything in the now populated checkedToppings Array and assigning it to toppingsValue.
+      // console.log(toppingsValue);
+      //
+      // // var myPizza = new Pizza(customerName,toppingsValue, pizzaSize);
+      // // var pizzaManager = new PizzaManager();
+      // // console.log(myPizza);
+      // //
+      // //
+      // // console.log(sumToppings(checkedToppings));
 
 
 
