@@ -6,25 +6,22 @@ var toppingTotal;
 Pizza = function(name, toppings, size){
   this.name = name,
   this.size = size,
-  this.toppings = toppings
-  // this.price = 0
+  this.toppings = toppings,
+  this.price = this.size + this.toppings
 
 };
 
-PizzaManager = function (){
+//This is if we want to have multiple pizza orders:
 
-  this.pizzas = [];
+// PizzaManager = function (){
+//   this.pizzas = [];
+// };
+//
+// PizzaManager.prototype.addPizza = function (pizzaInput){
+//   this.pizzas.push(pizzaInput);
+// };
 
-};
 
-PizzaManager.prototype.addPizza = function (pizzaInput){
-
-  this.pizzas.push(pizzaInput);
-
-};
-
-// var myPizza = new Pizza("Marcus",["tomato","olive","pep"], "large");
-// var pizzaManager = new PizzaManager();
 
 function toppingsValue(toppings){
   for(i=0; i < toppings.length; i++){
@@ -48,32 +45,14 @@ $( document ).ready(function() {
       var customerName = $("#name").val();
       var pizzaSize = parseInt($("input[name='size']:checked").val());
 
-      
+
       var toppings = $('input[type=checkbox]:checked');
       toppingsValue(toppings);
       toppingTotal = sumToppings(checkedToppings);
-      console.log(toppingTotal);
+      var myPizza = new Pizza(customerName,toppingTotal,pizzaSize);
+      console.log(myPizza.name);
 
-
-
-
-
-
-
-
-      // customerName = $("#name").val();
-      // pizzaSize = parseInt($("input[name='size']:checked").val());
-      // var toppings = $('input[type=checkbox]:checked');
-      // toppingsValue(toppings); //this is pushing the string value of the toppings into the checkedToppings array. left with an array of numbers.
-      // toppingsValue = sumToppings(checkedToppings); //this is adding everything in the now populated checkedToppings Array and assigning it to toppingsValue.
-      // console.log(toppingsValue);
-      //
-      // // var myPizza = new Pizza(customerName,toppingsValue, pizzaSize);
-      // // var pizzaManager = new PizzaManager();
-      // // console.log(myPizza);
-      // //
-      // //
-      // // console.log(sumToppings(checkedToppings));
+      $("#recipt").text("Thank you for your order " + myPizza.name+"!" + " your grand total is: $" + myPizza.price);
 
 
 
