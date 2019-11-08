@@ -9,13 +9,14 @@ Pizza = function(name, toppings, size){
   this.name = name,
   this.size = size,
   this.toppings = toppings,
+  this.id = 1;
   this.price = 0;
 
 };
 
 Pizza.prototype.calcPrice = function(){
   this.price = this.size + this.toppings;
-
+  this.id += 1;  //this is new
 }
 
 //below this line is new
@@ -28,6 +29,8 @@ PizzaManager = function (){
 PizzaManager.prototype.addPizza = function (pizzaInput){
   this.pizzas.push(pizzaInput);
 };
+
+var pizzaManager = new PizzaManager();   //this is new
 
 //above this line is new
 
@@ -60,10 +63,11 @@ $( document ).ready(function() {
       toppingsValue(toppings);
       toppingTotal = sumToppings(checkedToppings);
       var myPizza = new Pizza(customerName,toppingTotal,pizzaSize);
-      var pizzaManager = new PizzaManager();   //this is new
+
       myPizza.calcPrice();
 
       pizzaManager.addPizza(myPizza);  //this is new
+      console.log(pizzaManager.pizzas);
 
       $("#recipt").text("Thank you for your order " + myPizza.name+"!" + " your grand total is: $" + myPizza.price);
 
