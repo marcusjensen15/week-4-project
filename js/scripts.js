@@ -37,7 +37,17 @@ PizzaManager.prototype.assignId = function(){
   return this.id;
 
 }
+//this is new
+PizzaManager.prototype.findPizza = function(id){
+  for(i=0; i< this.pizzas.length; i++){
+    if (this.pizzas[i].id == id){
+      return this.pizzas[i];
+    }
 
+  }
+  alert("sorry, that id doesn't exist");
+}
+//this is new ^
 var pizzaManager = new PizzaManager();   //this is new
 
 //above this line is new
@@ -77,7 +87,7 @@ $( document ).ready(function() {
       pizzaManager.addPizza(myPizza);  //this is new
       console.log(pizzaManager.pizzas);
 
-      $("#recipt").text("Thank you for your order " + myPizza.name+"!" + " your grand total is: $" + myPizza.price);
+      $("#recipt").text("Thank you for your order " + myPizza.name+"!" + " your grand total is: $" + myPizza.price +"." + " Your pizza ID is: " + myPizza.id);
 
       $("#name").val(" ");
       $('input[type=checkbox]').prop('checked', false);
