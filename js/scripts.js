@@ -3,8 +3,6 @@
 var checkedToppings = [];
 var toppingTotal;
 
-
-
 Pizza = function(name, toppings, size){
   this.name = name,
   this.size = size,
@@ -17,9 +15,6 @@ Pizza.prototype.calcPrice = function(){
   this.price = this.size + this.toppings;
 
 }
-
-//below this line is new
-// This is if we want to have multiple pizza orders:
 
 PizzaManager = function (){
   this.pizzas = [];
@@ -37,7 +32,7 @@ PizzaManager.prototype.assignId = function(){
   return this.id;
 
 }
-//this is new
+
 PizzaManager.prototype.findPizza = function(id){
   for(i=0; i< this.pizzas.length; i++){
     if (this.pizzas[i].id == id){
@@ -47,12 +42,8 @@ PizzaManager.prototype.findPizza = function(id){
   }
   alert("sorry, that id doesn't exist");
 }
-//this is new ^
-var pizzaManager = new PizzaManager();   //this is new
 
-//above this line is new
-
-
+var pizzaManager = new PizzaManager();
 
 function toppingsValue(toppings){
   for(i=0; i < toppings.length; i++){
@@ -74,12 +65,10 @@ $( document ).ready(function() {
   $("#pizzaFinderButton").click(function() {
     var pizzaId = $("#pizzaId").val();
     var currentPizza = pizzaManager.findPizza(pizzaId);
-    console.log(pizzaId);
-    console.log(currentPizza.price);
     $("#pizzaIdOutput").text("Pizza ID Number: " + currentPizza.id + " Was ordered for: " + currentPizza.name+ " and the price was: $" + currentPizza.price);
+    $("#pizzaId").val(" ");
 
   });
-
 
     $("#pizzaOrder").submit(function(event){
       checkedToppings = [];
@@ -94,8 +83,7 @@ $( document ).ready(function() {
 
       myPizza.calcPrice();
 
-      pizzaManager.addPizza(myPizza);  //this is new
-      console.log(pizzaManager.pizzas);
+      pizzaManager.addPizza(myPizza);
 
       $("#recipt").text("Thank you for your order " + myPizza.name+"!" + " your grand total is: $" + myPizza.price +"." + " Your pizza ID is: " + myPizza.id);
 
