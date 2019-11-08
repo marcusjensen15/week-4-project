@@ -25,7 +25,7 @@ Pizza = function(name, toppings, size){
 
 function toppingsValue(toppings){
   for(i=0; i < toppings.length; i++){
-    checkedToppings.push(parseInt(toppings[i].value));
+    checkedToppings.push(parseFloat(toppings[i].value)); 
   }
 };
 
@@ -50,7 +50,6 @@ $( document ).ready(function() {
       toppingsValue(toppings);
       toppingTotal = sumToppings(checkedToppings);
       var myPizza = new Pizza(customerName,toppingTotal,pizzaSize);
-      console.log(myPizza.name);
 
       $("#recipt").text("Thank you for your order " + myPizza.name+"!" + " your grand total is: $" + myPizza.price);
 
