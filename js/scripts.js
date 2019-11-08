@@ -71,6 +71,16 @@ function sumToppings(checkedToppingsArray){
 
 //User Logic
 $( document ).ready(function() {
+  $("#pizzaFinderButton").click(function() {
+    var pizzaId = $("#pizzaId").val();
+    var currentPizza = pizzaManager.findPizza(pizzaId);
+    console.log(pizzaId);
+    console.log(currentPizza.price);
+    $("#pizzaIdOutput").text("Pizza ID Number: " + currentPizza.id + " Was ordered for: " + currentPizza.name+ " and the price was: $" + currentPizza.price);
+
+  });
+
+
     $("#pizzaOrder").submit(function(event){
       checkedToppings = [];
       var customerName = $("#name").val();
