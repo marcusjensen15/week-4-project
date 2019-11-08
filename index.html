@@ -13,7 +13,31 @@
   </head>
   <body>
     <form id="pizzaOrder" action="index.html" method="post">
-      <button type="submit" name="button"></button>
+
+      <!-- user selects size here -->
+      <input type="radio" name="size" value="8"> Small<br>
+      <input type="radio" name="size" value="10"> Medium<br>
+      <input type="radio" name="size" value="12"> Large <br>
+
+      <!-- user selects toppings here -->
+     <label class="container">meat
+       <input type="checkbox"  value="1">
+       <span class="checkmark"></span>
+     </label>
+     <label class="container">onions
+       <input type="checkbox"  value="2">
+       <span class="checkmark"></span>
+     </label>
+     <label class="container">cheese
+       <input type="checkbox"  value="3">
+       <span class="checkmark"></span>
+     </label>
+     <label class="container">avocado
+       <input type="checkbox"  value="4">
+       <span class="checkmark"></span>
+     </label>
+
+      <button type="submit" name="button">Order Your Pizza!</button>
     </form>
 
   </body>

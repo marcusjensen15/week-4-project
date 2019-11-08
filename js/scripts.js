@@ -21,7 +21,7 @@ PizzaManager.prototype.addPizza = function (pizzaInput){
 var myPizza = new Pizza("Marcus",["tomato","olive","pep"], "large");
 var pizzaManager = new PizzaManager();
 
-pizzaManager.addPizza("hello");
+pizzaManager.addPizza(myPizza);
 
 console.log(pizzaManager);
 
@@ -33,7 +33,9 @@ console.log(pizzaManager);
 $( document ).ready(function() {
     $("#pizzaOrder").submit(function(event){
 
-      console.log("hi");
+      var pizzaSize = parseInt($("input[name='size']:checked").val());
+      console.log(pizzaSize);
+
 
         event.preventDefault();
     });
