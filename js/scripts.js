@@ -17,16 +17,19 @@ Pizza.prototype.calcPrice = function(){
   this.price = this.size + this.toppings;
 
 }
-//This is if we want to have multiple pizza orders:
 
-// PizzaManager = function (){
-//   this.pizzas = [];
-// };
-//
-// PizzaManager.prototype.addPizza = function (pizzaInput){
-//   this.pizzas.push(pizzaInput);
-// };
-// find more funcitonality
+//below this line is new
+// This is if we want to have multiple pizza orders:
+
+PizzaManager = function (){
+  this.pizzas = [];
+};
+
+PizzaManager.prototype.addPizza = function (pizzaInput){
+  this.pizzas.push(pizzaInput);
+};
+
+//above this line is new
 
 
 
@@ -57,7 +60,11 @@ $( document ).ready(function() {
       toppingsValue(toppings);
       toppingTotal = sumToppings(checkedToppings);
       var myPizza = new Pizza(customerName,toppingTotal,pizzaSize);
+      var pizzaManager = new PizzaManager();   //this is new
       myPizza.calcPrice();
+
+      pizzaManager.addPizza(myPizza);  //this is new
+
       $("#recipt").text("Thank you for your order " + myPizza.name+"!" + " your grand total is: $" + myPizza.price);
 
       $("#name").val(" ");
