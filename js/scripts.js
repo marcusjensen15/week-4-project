@@ -9,14 +9,13 @@ Pizza = function(name, toppings, size){
   this.name = name,
   this.size = size,
   this.toppings = toppings,
-  this.id = 1;
   this.price = 0;
 
 };
 
 Pizza.prototype.calcPrice = function(){
   this.price = this.size + this.toppings;
-  this.id += 1;  //this is new
+
 }
 
 //below this line is new
@@ -24,11 +23,20 @@ Pizza.prototype.calcPrice = function(){
 
 PizzaManager = function (){
   this.pizzas = [];
+  this.id = 0;
 };
 
 PizzaManager.prototype.addPizza = function (pizzaInput){
+  pizzaInput.id = this.assignId();
   this.pizzas.push(pizzaInput);
+
 };
+
+PizzaManager.prototype.assignId = function(){
+  this.id += 1;
+  return this.id;
+
+}
 
 var pizzaManager = new PizzaManager();   //this is new
 
