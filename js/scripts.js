@@ -26,7 +26,7 @@ Pizza.prototype.calcPrice = function(){
 // PizzaManager.prototype.addPizza = function (pizzaInput){
 //   this.pizzas.push(pizzaInput);
 // };
-//
+// find more funcitonality
 
 
 
