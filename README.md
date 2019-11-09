@@ -30,4 +30,4 @@ _HTML, CSS, Javascript, Bootstrap, jQuery_
 
 *MIT User License*
 
-Copyright (c) 2019 **_Marcus Jensen, Epicodus Student_**
+Copyright (c) 2019 **_Marcus Jensen, Epicodus_**
